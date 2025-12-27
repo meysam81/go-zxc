@@ -1,7 +1,11 @@
 # go-zxc
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/meysam81/go-zxc.svg)](https://pkg.go.dev/github.com/meysam81/go-zxc)
+[![Go Report Card](https://goreportcard.com/badge/github.com/meysam81/go-zxc?style=flat-square)](https://goreportcard.com/report/github.com/meysam81/go-zxc)
 [![License](https://img.shields.io/badge/license-Apache--2-blue)](LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/meysam81/go-zxc?style=flat-square)](https://github.com/meysam81/go-zxc/releases)
+[![GitHub Stars](https://img.shields.io/github/stars/meysam81/go-zxc?style=flat-square&logo=github)](https://github.com/meysam81/go-zxc/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/meysam81/go-zxc?style=flat-square&logo=github)](https://github.com/meysam81/go-zxc/issues)
 
 Go bindings for [ZXC](https://github.com/hellobertrand/zxc), an asymmetric high-performance lossless compression library.
 
@@ -156,10 +160,22 @@ go test -bench=. -benchmem
 
 Example results on Apple M2:
 
+```shell
+$ go test -bench=. -benchmem
+goos: linux
+goarch: amd64
+pkg: github.com/meysam81/go-zxc
+cpu: AMD Ryzen 5 3600 6-Core Processor
 ```
-BenchmarkCompress-8        10000    105234 ns/op   428.35 MB/s
-BenchmarkDecompress-8      50000     21456 ns/op  2100.12 MB/s
-```
+
+| Benchmark                           | Iterations | Time per Op | Throughput   | Allocated  | Allocations |
+| ----------------------------------- | ---------- | ----------- | ------------ | ---------- | ----------- |
+| BenchmarkCompress-12                | 145081     | 8581 ns/op  | 5244.44 MB/s | 49152 B/op | 1 allocs/op |
+| BenchmarkDecompress-12              | 117092     | 11028 ns/op | 4080.36 MB/s | 49152 B/op | 1 allocs/op |
+| BenchmarkCompressLevels/Fast-12     | 169578     | 7577 ns/op  | 5939.18 MB/s | 49152 B/op | 1 allocs/op |
+| BenchmarkCompressLevels/Default-12  | 147922     | 7563 ns/op  | 5950.27 MB/s | 49152 B/op | 1 allocs/op |
+| BenchmarkCompressLevels/Balanced-12 | 162199     | 7284 ns/op  | 6177.55 MB/s | 49152 B/op | 1 allocs/op |
+| BenchmarkCompressLevels/Compact-12  | 163042     | 7329 ns/op  | 6140.05 MB/s | 49152 B/op | 1 allocs/op |
 
 ## License
 
