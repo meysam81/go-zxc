@@ -88,3 +88,47 @@ jobs:
         uses: googleapis/release-please-action@v4
         with:
           release-type: go
+
+  release-note-generation:
+    runs-on: ubuntu-latest
+    permissions:
+      models: read
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Get commit log
+        id: commits
+        run: |
+          last_tag="$(git tag -l | tail -1)"
+          commits="$(git log --oneline "$last_tag"..HEAD)"
+          echo "commits=$commits" >> "$GITHUB_OUTPUT"
+      - name: Run model
+        uses: ai-action/ollama-action@v2
+        id: model
+        with:
+          model: llama3.2:3b
+          prompt: |
+            Generate release notes from these commits. Be concise. Format as markdown with sections for Features, Fixes, and Other.
+
+            Commits:
+            ${{ steps.commits.outputs.commits }}
+      - name: Print response
+        run: echo "$response"
+        env:
+          response: ${{ steps.model.outputs.response }}
+      - name: Test Local Action
+        id: inference
+        uses: actions/ai-inference@v1
+        with:
+          prompt: |
+            Generate release notes from these commits. Be concise. Format as markdown with sections for Features, Fixes, and Other.
+
+            Commits:
+            ${{ steps.commits.outputs.commits }}
+      - name: Print response
+        run: echo "$response"
+        env:
+          response: ${{ steps.inference.outputs.response }}
