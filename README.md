@@ -1,5 +1,6 @@
 # go-zxc
 
+[![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/meysam81/go-zxc)](https://github.com/meysam81/go-zxc/blob/main/go.mod)
 [![Go Reference](https://pkg.go.dev/badge/github.com/meysam81/go-zxc.svg)](https://pkg.go.dev/github.com/meysam81/go-zxc)
 [![Go Report Card](https://goreportcard.com/badge/github.com/meysam81/go-zxc?style=flat-square)](https://goreportcard.com/report/github.com/meysam81/go-zxc)
 [![License](https://img.shields.io/badge/license-Apache--2-blue)](LICENSE)
