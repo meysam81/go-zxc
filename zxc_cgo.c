@@ -8,3 +8,4 @@
 #include "vendor/zxc/src/lib/zxc_common.c"
 #include "vendor/zxc/src/lib/zxc_compress.c"
 #include "vendor/zxc/src/lib/zxc_decompress.c"
+#include "vendor/zxc/src/lib/zxc_driver.c"
