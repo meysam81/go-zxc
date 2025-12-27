@@ -169,14 +169,16 @@ pkg: github.com/meysam81/go-zxc
 cpu: AMD Ryzen 5 3600 6-Core Processor
 ```
 
-| Benchmark                           | Iterations | Time per Op | Throughput   | Allocated  | Allocations |
-| ----------------------------------- | ---------- | ----------- | ------------ | ---------- | ----------- |
-| BenchmarkCompress-12                | 145081     | 8581 ns/op  | 5244.44 MB/s | 49152 B/op | 1 allocs/op |
-| BenchmarkDecompress-12              | 117092     | 11028 ns/op | 4080.36 MB/s | 49152 B/op | 1 allocs/op |
-| BenchmarkCompressLevels/Fast-12     | 169578     | 7577 ns/op  | 5939.18 MB/s | 49152 B/op | 1 allocs/op |
-| BenchmarkCompressLevels/Default-12  | 147922     | 7563 ns/op  | 5950.27 MB/s | 49152 B/op | 1 allocs/op |
-| BenchmarkCompressLevels/Balanced-12 | 162199     | 7284 ns/op  | 6177.55 MB/s | 49152 B/op | 1 allocs/op |
-| BenchmarkCompressLevels/Compact-12  | 163042     | 7329 ns/op  | 6140.05 MB/s | 49152 B/op | 1 allocs/op |
+| Benchmark                           | Iterations | Time per Op   | Throughput   | Allocated  | Allocations |
+| ----------------------------------- | ---------- | ------------- | ------------ | ---------- | ----------- |
+| BenchmarkStreamCompress-12          | 544        | 2121956 ns/op | 212.07 MB/s  | 400 B/op   | 7 allocs/op |
+| BenchmarkStreamDecompress-12        | 524        | 2277227 ns/op | 197.61 MB/s  | 336 B/op   | 6 allocs/op |
+| BenchmarkCompress-12                | 138612     | 8934 ns/op    | 5036.80 MB/s | 49152 B/op | 1 allocs/op |
+| BenchmarkDecompress-12              | 107698     | 10726 ns/op   | 4195.44 MB/s | 49152 B/op | 1 allocs/op |
+| BenchmarkCompressLevels/Fast-12     | 164079     | 8745 ns/op    | 5145.94 MB/s | 49152 B/op | 1 allocs/op |
+| BenchmarkCompressLevels/Default-12  | 146947     | 7705 ns/op    | 5840.28 MB/s | 49152 B/op | 1 allocs/op |
+| BenchmarkCompressLevels/Balanced-12 | 161617     | 8235 ns/op    | 5464.67 MB/s | 49152 B/op | 1 allocs/op |
+| BenchmarkCompressLevels/Compact-12  | 138926     | 8285 ns/op    | 5431.42 MB/s | 49152 B/op | 1 allocs/op |
 
 ## License
 
