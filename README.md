@@ -3,6 +3,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/meysam81/go-zxc.svg)](https://pkg.go.dev/github.com/meysam81/go-zxc)
 [![Go Report Card](https://goreportcard.com/badge/github.com/meysam81/go-zxc?style=flat-square)](https://goreportcard.com/report/github.com/meysam81/go-zxc)
 [![License](https://img.shields.io/badge/license-Apache--2-blue)](LICENSE)
+[![codecov](https://codecov.io/gh/meysam81/go-zxc/graph/badge.svg?token=CJL9KGSWOH)](https://codecov.io/gh/meysam81/go-zxc)
 [![GitHub release](https://img.shields.io/github/v/release/meysam81/go-zxc?style=flat-square)](https://github.com/meysam81/go-zxc/releases)
 [![GitHub Stars](https://img.shields.io/github/stars/meysam81/go-zxc?style=flat-square&logo=github)](https://github.com/meysam81/go-zxc/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/meysam81/go-zxc?style=flat-square&logo=github)](https://github.com/meysam81/go-zxc/issues)
