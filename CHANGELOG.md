@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.2.1](https://github.com/meysam81/go-zxc/compare/v0.2.0...v0.2.1) (2025-12-27)
+
+
+### Bug Fixes
+
+* **CI:** bring back the root C file ([3538fa2](https://github.com/meysam81/go-zxc/commit/3538fa20fc0ee111be5a8758bea6f7d34079c8d5))
+* **CI:** specify ld flags to cgo ([73c6252](https://github.com/meysam81/go-zxc/commit/73c6252a94ae191203da425aea3b488d3b4bcc5c))
+* **doc:** add cgo installation note ([89ce5f9](https://github.com/meysam81/go-zxc/commit/89ce5f94a74c9b044c2ae7f6adb69da6738640ed))
+* **doc:** update benchmark HW note ([794469e](https://github.com/meysam81/go-zxc/commit/794469e19efeccc1f410b3caae620cb062ed2087))
+* include cflags for stream bindings ([cf78618](https://github.com/meysam81/go-zxc/commit/cf7861826e492df3d5e6c6504fc92c4f8b1b799e))
+* link to internal vendored C files ([4910a7b](https://github.com/meysam81/go-zxc/commit/4910a7bfc3b34513eb56722db42f9307b0105d41))
+* vendor and modify include path ([9fa4f14](https://github.com/meysam81/go-zxc/commit/9fa4f14040673b8495c2f81c0df3027777336163))
+* vendor C library for ease of downstream imports ([7b38f5a](https://github.com/meysam81/go-zxc/commit/7b38f5a0dc0d57d9ae119cd833fbc87cb1971d61))
+
 ## [0.2.0](https://github.com/meysam81/go-zxc/compare/v0.1.0...v0.2.0) (2025-12-27)
 
 
