@@ -64,7 +64,13 @@ jobs:
       - name: Build and Test
         run: |
           go build -v ./...
-          go test -v ./...
+          go test -v -race -coverprofile=coverage.out -covermode=atomic ./...
+      - name: Upload coverage reports
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.out
+          fail_ci_if_error: false
 
   release-please:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'

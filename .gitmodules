@@ -1,4 +1,5 @@
 [submodule "vendor/zxc"]
   path = vendor/zxc
   url = https://github.com/hellobertrand/zxc
+  # renovate: github=hellobertrand/zxc
   branch = v0.3.0
