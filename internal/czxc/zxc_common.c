@@ -6,8 +6,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#include "../../include/zxc_buffer.h"
-#include "../../include/zxc_sans_io.h"
+#include "zxc_buffer.h"
+#include "zxc_sans_io.h"
 #include "zxc_internal.h"
 
 /*
@@ -110,7 +110,7 @@ void zxc_cctx_free(zxc_cctx_t* ctx) {
  */
 
 #define XXH_INLINE_ALL
-#include "../../include/xxhash.h"
+#include "xxhash.h"
 
 uint64_t zxc_checksum(const void* data, size_t len) { return XXH3_64bits(data, len); }
 

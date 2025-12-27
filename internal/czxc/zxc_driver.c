@@ -10,9 +10,9 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#include "../../include/zxc_buffer.h"
-#include "../../include/zxc_sans_io.h"
-#include "../../include/zxc_stream.h"
+#include "zxc_buffer.h"
+#include "zxc_sans_io.h"
+#include "zxc_stream.h"
 #include "zxc_internal.h"
 
 /*

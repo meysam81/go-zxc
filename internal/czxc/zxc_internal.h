@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../include/zxc_sans_io.h"
+#include "zxc_sans_io.h"
 
 #ifdef __cplusplus
 extern "C" {
