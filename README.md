@@ -22,6 +22,7 @@ go get github.com/meysam81/go-zxc
 ```
 
 **Requirements:**
+
 - Go 1.21 or later
 - C compiler (gcc or clang)
 - Git (for submodule initialization)
@@ -80,12 +81,12 @@ func main() {
 
 ZXC provides four compression levels with different trade-offs:
 
-| Level | Constant | Description |
-|-------|----------|-------------|
-| 2 | `LevelFast` | Fastest compression, best for real-time applications |
-| 3 | `LevelDefault` | Recommended: ratio > LZ4, decode speed > LZ4 |
-| 4 | `LevelBalanced` | Good ratio and decode speed balance |
-| 5 | `LevelCompact` | Highest density, best for storage/firmware/assets |
+| Level | Constant        | Description                                          |
+| ----- | --------------- | ---------------------------------------------------- |
+| 2     | `LevelFast`     | Fastest compression, best for real-time applications |
+| 3     | `LevelDefault`  | Recommended: ratio > LZ4, decode speed > LZ4         |
+| 4     | `LevelBalanced` | Good ratio and decode speed balance                  |
+| 5     | `LevelCompact`  | Highest density, best for storage/firmware/assets    |
 
 ```go
 // Use compact level for maximum compression
