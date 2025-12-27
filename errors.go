@@ -1,5 +1,5 @@
 // Copyright 2025 Meysam Azad
-// SPDX-License-Identifier: BSD-3-Clause
+// SPDX-License-Identifier: Apache-2.0
 
 package zxc
 

@@ -1,5 +1,5 @@
 // Copyright 2025 Meysam Azad
-// SPDX-License-Identifier: BSD-3-Clause
+// SPDX-License-Identifier: Apache-2.0
 
 // This file includes the ZXC library source files for cgo compilation.
 // By placing this in the package directory, cgo will compile it along with

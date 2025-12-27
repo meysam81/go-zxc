@@ -1,7 +1,7 @@
 # go-zxc
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/meysam81/go-zxc.svg)](https://pkg.go.dev/github.com/meysam81/go-zxc)
-[![License](https://img.shields.io/badge/license-BSD--3--Clause-blue)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache--2-blue)](LICENSE)
 
 Go bindings for [ZXC](https://github.com/hellobertrand/zxc), an asymmetric high-performance lossless compression library.
 
@@ -18,28 +18,7 @@ ZXC is designed for "Write Once, Read Many" scenarios where compression speed (b
 ## Installation
 
 ```bash
-go get github.com/meysam81/go-zxc
-```
-
-**Requirements:**
-
-- Go 1.21 or later
-- C compiler (gcc or clang)
-- Git (for submodule initialization)
-
-After installing, initialize the submodule:
-
-```bash
-cd $(go env GOPATH)/pkg/mod/github.com/meysam81/go-zxc@<version>
-git submodule update --init --recursive
-```
-
-Or clone directly for development:
-
-```bash
-git clone --recursive https://github.com/meysam81/go-zxc.git
-cd go-zxc
-go build
+go get -u github.com/meysam81/go-zxc
 ```
 
 ## Quick Start
@@ -184,6 +163,6 @@ BenchmarkDecompress-8      50000     21456 ns/op  2100.12 MB/s
 
 ## License
 
-This project is licensed under the BSD-3-Clause License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENSE) file for details.
 
-The underlying ZXC library is Copyright (c) 2025 Bertrand Lebonnois, also under BSD-3-Clause.
+The underlying ZXC library is Copyright (c) 2025 Bertrand Lebonnois, also under Apache-2.0.
