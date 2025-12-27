@@ -19,6 +19,7 @@ ZXC is designed for "Write Once, Read Many" scenarios where compression speed (b
 - **Better compression ratios** than LZ4
 - **Thread-safe** stateless API suitable for concurrent use
 - **Optional checksum** verification for data integrity
+- **Streaming API** for large files with multi-threaded compression/decompression
 
 ## Installation
 
@@ -29,6 +30,8 @@ go get -u github.com/meysam81/go-zxc
 **NOTE:**: This package is a CGO wrapper and you MUST have `CGO_ENABLED` set to `1` (default) to build and use it.
 
 ## Quick Start
+
+### In-Memory Compression
 
 ```go
 package main
@@ -60,6 +63,48 @@ func main() {
     }
 
     fmt.Printf("Decompressed: %s\n", string(decompressed))
+}
+```
+
+### Streaming Compression
+
+For large files that may not fit in memory, use the streaming API:
+
+```go
+package main
+
+import (
+    "log"
+    "os"
+
+    "github.com/meysam81/go-zxc"
+)
+
+func main() {
+    inputFile, err := os.Open("large-file.dat")
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer inputFile.Close()
+
+    outputFile, err := os.Create("large-file.dat.zxc")
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer outputFile.Close()
+
+    opts := &zxc.StreamOptions{
+        Level:    zxc.LevelDefault,
+        Checksum: true,
+        Threads:  0,
+    }
+
+    compressedBytes, err := zxc.StreamCompress(inputFile, outputFile, opts)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    log.Printf("Compressed %d bytes\n", compressedBytes)
 }
 ```
 
@@ -108,6 +153,22 @@ decompressed, err := zxc.Decompress(compressed, originalSize, opts)
 n, err := zxc.DecompressTo(dst, compressed, opts)
 ```
 
+### Streaming Compression
+
+```go
+compressedBytes, err := zxc.StreamCompress(inputFile, outputFile, streamOpts)
+```
+
+Compresses data from the input file to the output file using a multi-threaded streaming pipeline. Designed for large files that may not fit in memory.
+
+### Streaming Decompression
+
+```go
+decompressedBytes, err := zxc.StreamDecompress(inputFile, outputFile, streamOpts)
+```
+
+Decompresses data from the input file to the output file using a multi-threaded streaming pipeline.
+
 ### Options
 
 ```go
@@ -115,9 +176,15 @@ type Options struct {
     Level    Level // Compression level (default: LevelDefault)
     Checksum bool  // Enable checksum (default: true)
 }
+
+type StreamOptions struct {
+    Level    Level // Compression level (default: LevelDefault)
+    Checksum bool  // Enable checksum (default: true)
+    Threads  int   // Number of worker threads (0 = auto-detect CPU cores)
+}
 ```
 
-### Version
+## Version
 
 ```go
 version := zxc.Version() // Returns "0.3.0"
@@ -127,11 +194,15 @@ version := zxc.Version() // Returns "0.3.0"
 
 ```go
 var (
-    ErrCompression    // Compression failed
-    ErrDecompression  // Decompression failed (corrupted data, checksum mismatch)
-    ErrBufferTooSmall // Destination buffer too small
-    ErrInvalidLevel   // Invalid compression level
-    ErrEmptyInput     // Input data is empty
+    ErrCompression          error
+    ErrDecompression        error
+    ErrBufferTooSmall       error
+    ErrInvalidLevel         error
+    ErrEmptyInput           error
+    ErrStreamNilFile        error
+    ErrStreamOpen           error
+    ErrStreamCompression    error
+    ErrStreamDecompression  error
 )
 ```
 
@@ -181,6 +252,16 @@ cpu: AMD Ryzen 5 3600 6-Core Processor
 | BenchmarkCompressLevels/Default-12  | 146947     | 7705 ns/op    | 5840.28 MB/s | 49152 B/op | 1 allocs/op |
 | BenchmarkCompressLevels/Balanced-12 | 161617     | 8235 ns/op    | 5464.67 MB/s | 49152 B/op | 1 allocs/op |
 | BenchmarkCompressLevels/Compact-12  | 138926     | 8285 ns/op    | 5431.42 MB/s | 49152 B/op | 1 allocs/op |
+
+## Use Cases
+
+### In-Memory Compression
+
+Best for small to medium-sized data that fits in memory. Use `Compress` and `Decompress` functions.
+
+### Streaming Compression
+
+Best for large files (hundreds of MB or larger) that may not fit in memory. The streaming API uses a multi-threaded pipeline with asynchronous I/O to maximize throughput. Use `StreamCompress` and `StreamDecompress` functions.
 
 ## License
 

@@ -15,18 +15,17 @@
 //   - Better compression ratios than LZ4
 //   - Thread-safe, stateless API suitable for concurrent use
 //   - Optional checksum verification for data integrity
+//   - Streaming API for large files with multi-threaded processing
 //
 // # Basic Usage
 //
 // Compress data using [Compress] and decompress using [Decompress]:
 //
-//	// Compress with default level
 //	compressed, err := zxc.Compress(data, nil)
 //	if err != nil {
 //	    log.Fatal(err)
 //	}
 //
-//	// Decompress
 //	decompressed, err := zxc.Decompress(compressed, len(data), nil)
 //	if err != nil {
 //	    log.Fatal(err)
@@ -57,16 +56,33 @@
 // to calculate the maximum compressed size and [CompressTo]/[DecompressTo] to
 // write to pre-allocated buffers:
 //
-//	// Pre-allocate destination buffer
 //	maxSize := zxc.CompressBound(len(data))
 //	dst := make([]byte, maxSize)
 //
-//	// Compress into the buffer
 //	n, err := zxc.CompressTo(dst, data, nil)
 //	if err != nil {
 //	    log.Fatal(err)
 //	}
 //	compressed := dst[:n]
+//
+// # Streaming API
+//
+// For large files that may not fit in memory, use the streaming API with
+// [StreamCompress] and [StreamDecompress]:
+//
+//	inputFile, _ := os.Open("large-file.dat")
+//	outputFile, _ := os.Create("large-file.dat.zxc")
+//
+//	opts := &zxc.StreamOptions{
+//	    Level:    zxc.LevelDefault,
+//	    Checksum: true,
+//	    Threads:  0,
+//	}
+//
+//	compressedBytes, err := zxc.StreamCompress(inputFile, outputFile, opts)
+//
+// The streaming API uses a multi-threaded pipeline with asynchronous I/O to
+// maximize throughput. Set Threads to 0 to auto-detect the number of CPU cores.
 //
 // # Thread Safety
 //
@@ -78,5 +94,7 @@
 //
 // Functions return [ErrCompression] or [ErrDecompression] when the operation
 // fails. [ErrBufferTooSmall] is returned when the destination buffer cannot
-// hold the result.
+// hold the result. Streaming functions return [ErrStreamCompression],
+// [ErrStreamDecompression], [ErrStreamNilFile], or [ErrStreamOpen] for
+// streaming-specific errors.
 package zxc
