@@ -13,13 +13,23 @@ package zxc
 static FILE* zxc_fdopen_read(int fd) {
     int duped = dup(fd);
     if (duped < 0) return NULL;
-    return fdopen(duped, "rb");
+    FILE *f = fdopen(duped, "rb");
+    if (f == NULL) {
+        close(duped);
+        return NULL;
+    }
+    return f;
 }
 
 static FILE* zxc_fdopen_write(int fd) {
     int duped = dup(fd);
     if (duped < 0) return NULL;
-    return fdopen(duped, "wb");
+    FILE *f = fdopen(duped, "wb");
+    if (f == NULL) {
+        close(duped);
+        return NULL;
+    }
+    return f;
 }
 */
 import "C"
