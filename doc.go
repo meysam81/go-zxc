@@ -27,7 +27,7 @@
 //	}
 //
 //	// Decompress
-//	decompressed, err := zxc.Decompress(compressed, len(data))
+//	decompressed, err := zxc.Decompress(compressed, len(data), nil)
 //	if err != nil {
 //	    log.Fatal(err)
 //	}
