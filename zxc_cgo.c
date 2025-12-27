@@ -5,7 +5,7 @@
 // By placing this in the package directory, cgo will compile it along with
 // the Go code, allowing the library to work with 'go get' without a build step.
 
-#include "vendor/zxc/src/lib/zxc_common.c"
-#include "vendor/zxc/src/lib/zxc_compress.c"
-#include "vendor/zxc/src/lib/zxc_decompress.c"
-#include "vendor/zxc/src/lib/zxc_driver.c"
+#include "internal/czxc/zxc_common.c"
+#include "internal/czxc/zxc_compress.c"
+#include "internal/czxc/zxc_decompress.c"
+#include "internal/czxc/zxc_driver.c"
