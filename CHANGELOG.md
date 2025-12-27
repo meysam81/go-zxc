@@ -1,0 +1,19 @@
+# Changelog
+
+## 0.1.0 (2025-12-27)
+
+
+### Features
+
+* add codecov badge to readme ([c900c0f](https://github.com/meysam81/go-zxc/commit/c900c0fd63c0ff6d070b30a6cfbd35d53ff9e884))
+* add go bindings for zxc compression library ([#2](https://github.com/meysam81/go-zxc/issues/2)) ([6458cc8](https://github.com/meysam81/go-zxc/commit/6458cc81d51b9c2a32d8d76d35786bef6eda134d))
+* **CI:** add codecov for coverage report ([caff3a3](https://github.com/meysam81/go-zxc/commit/caff3a341b959201c3265979051e0124a946c710))
+* **doc:** add benchmark and lower go version for compatibility ([b85efe3](https://github.com/meysam81/go-zxc/commit/b85efe397e3d260fe32a78bff45389dda172e1c2))
+* pin to zxc 0.3.0 ([b9521bd](https://github.com/meysam81/go-zxc/commit/b9521bdbba7ad650af710de07b3ad4d5729ad75d))
+
+
+### Bug Fixes
+
+* **CI:** recurse submodules ([31ee6a9](https://github.com/meysam81/go-zxc/commit/31ee6a9b4f662fe95408319d5d58764233238208))
+* **CI:** remove bun install ([8105094](https://github.com/meysam81/go-zxc/commit/8105094cfc4f65bd938cad7eee54392d28b7de9e))
+* use apache 2 license ([5908d97](https://github.com/meysam81/go-zxc/commit/5908d97c40e3546ba31c98cc17d8c60137c33001))
