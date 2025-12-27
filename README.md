@@ -26,6 +26,8 @@ ZXC is designed for "Write Once, Read Many" scenarios where compression speed (b
 go get -u github.com/meysam81/go-zxc
 ```
 
+**NOTE:**: This package is a CGO wrapper and you MUST have `CGO_ENABLED` set to `1` (default) to build and use it.
+
 ## Quick Start
 
 ```go
