@@ -232,7 +232,7 @@ Run benchmarks with:
 go test -bench=. -benchmem
 ```
 
-Example results on Apple M2:
+Example results:
 
 ```shell
 $ go test -bench=. -benchmem
