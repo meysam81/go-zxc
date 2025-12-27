@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/meysam81/go-zxc/compare/v0.1.0...v0.2.0) (2025-12-27)
+
+
+### Features
+
+* add streaming API implementation ([#6](https://github.com/meysam81/go-zxc/issues/6)) ([5c15693](https://github.com/meysam81/go-zxc/commit/5c15693f381daf1152a33cf865302bba68b1830d))
+
 ## 0.1.0 (2025-12-27)
 
 
