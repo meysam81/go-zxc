@@ -207,8 +207,6 @@ func ExampleStreamCompress() {
 	}
 
 	fmt.Printf("Compressed %d bytes to %d bytes\n", len(data), compressedBytes)
-
-	// Output:
 }
 
 func ExampleStreamDecompress() {
