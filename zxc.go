@@ -4,12 +4,13 @@
 package zxc
 
 /*
-#cgo CFLAGS: -I${SRCDIR}/vendor/zxc/include -O3 -DNDEBUG
-#cgo linux LDFLAGS: -lm -lpthread
-#cgo darwin LDFLAGS: -lm -lpthread
+#cgo CFLAGS: -I${SRCDIR}/internal/czxc -O3 -DNDEBUG
+#cgo darwin,arm64 CFLAGS: -march=armv8-a
+#cgo linux,arm64 CFLAGS: -march=armv8-a
+#cgo linux,amd64 CFLAGS: -march=x86-64
 
-#include <stdlib.h>
 #include "zxc.h"
+#include <stdlib.h>
 */
 import "C"
 
