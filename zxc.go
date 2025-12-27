@@ -5,9 +5,7 @@ package zxc
 
 /*
 #cgo CFLAGS: -I${SRCDIR}/internal/czxc -O3 -DNDEBUG
-#cgo darwin,arm64 CFLAGS: -march=armv8-a
-#cgo linux,arm64 CFLAGS: -march=armv8-a
-#cgo linux,amd64 CFLAGS: -march=x86-64
+#cgo LDFLAGS: -lm -lpthread
 
 #include "zxc.h"
 #include <stdlib.h>
