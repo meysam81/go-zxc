@@ -4,8 +4,10 @@
 package zxc
 
 /*
-#cgo CFLAGS: -I${SRCDIR}/internal/czxc -O3 -DNDEBUG
-#cgo LDFLAGS: -lm -lpthread
+#cgo CFLAGS: -I${SRCDIR}/internal/czxc -O3 -flto -fomit-frame-pointer -fstrict-aliasing -ffast-math -pthread -DNDEBUG
+#cgo linux CFLAGS: -D_GNU_SOURCE
+#cgo linux LDFLAGS: -flto -pthread -lm
+#cgo darwin LDFLAGS: -lm
 
 #include <stdio.h>
 #include <stdlib.h>
