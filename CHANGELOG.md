@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.2.2](https://github.com/meysam81/go-zxc/compare/v0.2.1...v0.2.2) (2025-12-28)
+
+
+### Features
+
+* **CI:** add multiplatform test job ([ae40e75](https://github.com/meysam81/go-zxc/commit/ae40e753ad25e33ffdf77f836d574fedbfd3f67e))
+
+
+### Bug Fixes
+
+* **CI:** do not fail on tests go versions ([06390d7](https://github.com/meysam81/go-zxc/commit/06390d74920326b3b4039b956aced1859bc211d3))
+* **CI:** drop test go v1.20 ([8de8fec](https://github.com/meysam81/go-zxc/commit/8de8fec3c8317ee85a4d4acded8d8fea0167aff1))
+* **CI:** quote the versions to avoid interpretation ([c253797](https://github.com/meysam81/go-zxc/commit/c2537972ab241deb4e7d028f30dd109a708d91c2))
+* **CI:** remove flto from ldflags ([e766d3d](https://github.com/meysam81/go-zxc/commit/e766d3dada0b5d23cccca0c2887b9129e8a42c86))
+* **CI:** remove windows tests ([7e5592c](https://github.com/meysam81/go-zxc/commit/7e5592c160266d03b11fcb885246057dbc86f48c))
+* **CI:** specify wildcard for latest go version ([ba72b16](https://github.com/meysam81/go-zxc/commit/ba72b162e1eebb7e35e0adaca9802f870e7658bb))
+
 ## [0.2.1](https://github.com/meysam81/go-zxc/compare/v0.2.0...v0.2.1) (2025-12-27)
 
 
