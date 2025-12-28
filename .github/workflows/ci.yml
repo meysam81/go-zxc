@@ -97,6 +97,7 @@ jobs:
           - "1.24"
           - "1.25"
           - "1.*"
+      fail-fast: false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
