@@ -124,3 +124,75 @@ jobs:
         uses: googleapis/release-please-action@v4
         with:
           release-type: go
+
+  release-note-generation:
+    runs-on: ubuntu-latest
+    permissions:
+      models: read
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Get commit log
+        id: commits
+        uses: actions/github-script@v7
+        with:
+          script: |
+            var getCommits = async function() {
+              var tags = await github.rest.repos.listTags({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                per_page: 1
+              });
+
+              var lastTag = tags.data.length > 0 ? tags.data[0].name : '';
+              var commits = '';
+
+              if (lastTag) {
+                var comparison = await github.rest.repos.compareCommits({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  base: lastTag,
+                  head: 'HEAD'
+                });
+
+                commits = comparison.data.commits
+                  .map(function(commit) {
+                    return commit.sha.substring(0, 7) + ' ' + commit.commit.message.split('\n')[0];
+                  })
+                  .join('\n');
+              }
+
+              core.setOutput('commits', commits);
+            };
+
+            await getCommits();
+      - name: Run model
+        uses: ai-action/ollama-action@v2
+        id: model
+        with:
+          model: llama3.2:3b
+          prompt: |
+            Generate release notes from these commits. Be concise. Format as markdown with sections for Features, Fixes, and Other.
+
+            Commits:
+            ${{ steps.commits.outputs.commits }}
+      - name: Print response
+        run: echo "$response"
+        env:
+          response: ${{ steps.model.outputs.response }}
+      - name: Test Local Action
+        id: inference
+        uses: actions/ai-inference@v1
+        with:
+          prompt: |
+            Generate release notes from these commits. Be concise. Format as markdown with sections for Features, Fixes, and Other.
+
+            Commits:
+            ${{ steps.commits.outputs.commits }}
+      - name: Print response
+        run: echo "$response"
+        env:
+          response: ${{ steps.inference.outputs.response }}
