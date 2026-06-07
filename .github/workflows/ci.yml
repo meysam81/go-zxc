@@ -62,7 +62,7 @@ jobs:
           go build -v ./...
           go test -v -race -coverprofile=coverage.out -covermode=atomic ./...
       - name: Upload coverage reports
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage.out
