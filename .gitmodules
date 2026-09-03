@@ -2,4 +2,4 @@
   path = vendor/zxc
   url = https://github.com/hellobertrand/zxc
   # renovate: github=hellobertrand/zxc
-  branch = v0.3.1
+  branch = v0.14.0
