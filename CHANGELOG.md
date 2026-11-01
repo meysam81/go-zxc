@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/meysam81/go-zxc/compare/v0.2.2...v0.2.3) (2026-11-01)
+
+
+### CI
+
+* pin actions to commit SHAs, renovate on the shared preset, release-please manifest config ([#19](https://github.com/meysam81/go-zxc/issues/19)) ([0e9f7b8](https://github.com/meysam81/go-zxc/commit/0e9f7b8463104840557235b58eab912e3950aacc))
+
 ## [0.2.2](https://github.com/meysam81/go-zxc/compare/v0.2.1...v0.2.2) (2025-12-28)
 
 
